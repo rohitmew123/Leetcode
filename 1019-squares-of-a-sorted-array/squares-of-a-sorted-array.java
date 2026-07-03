@@ -3,11 +3,30 @@ class Solution {
 
         int arr[] = new int[nums.length];
 
-        for(int i=0; i<nums.length; i++) {
-            arr[i] = nums[i] * nums[i];
+       
+        int left = 0;
+        int right = nums.length-1;
+        int index = nums.length-1;
 
+        while(left <= right) {
+
+            int leftsquare = nums[left] * nums[left];
+            int  rightsquare = nums[right] * nums[right];
+
+            if(leftsquare < rightsquare) {
+                arr[index] = rightsquare;
+                index--;
+                right--;
+
+
+            } else {
+                arr[index] = leftsquare;
+                index--;
+                left++;
+            }
         }
-        Arrays.sort(arr);
+
+       
         return arr;
         
     }
