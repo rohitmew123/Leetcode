@@ -1,36 +1,67 @@
 class Solution {
     public boolean isValid(String s) {
-        Stack<Character> ss = new Stack<>();
+        Stack<Character> stk = new Stack<>();
 
         for(int i=0; i<s.length(); i++) {
             char ch = s.charAt(i);
 
             if(ch == '(' || ch == '{' || ch == '[') {
-                ss.push(ch);
-            } 
+
+                stk.push(ch);
+            }
             else {
-                if(ss.isEmpty()) {
+
+                if(stk.isEmpty()) {
                     return false;
                 }
                 else {
-                    
-                    if (  (ss.peek() == '(' && ch == ')') 
-                    || (ss.peek() == '{' && ch == '}') 
-                    || (ss.peek() == '[' && ch == ']')  ) {
-                        ss.pop();
-                    }
+
+                    if((stk.peek() == '(' && ch == ')') ||
+                       (stk.peek() == '{' && ch == '}') ||
+                       (stk.peek() == '[' && ch == ']' )) {
+
+                        stk.pop();
+    
+                    } 
                     else {
                         return false;
-                    }           
-                    
+                    }
                 }
             }
         }
-        if(ss.isEmpty()) {
-            return true;
-        }
-        else {
-            return false;
-        }
+       return stk.isEmpty();
+
+    //     Stack<Character> ss = new Stack<>();
+
+    //     for(int i=0; i<s.length(); i++) {
+    //         char ch = s.charAt(i);
+
+    //         if(ch == '(' || ch == '{' || ch == '[') {
+    //             ss.push(ch);
+    //         } 
+    //         else {
+    //             if(ss.isEmpty()) {
+    //                 return false;
+    //             }
+    //             else {
+                    
+    //                 if (  (ss.peek() == '(' && ch == ')') 
+    //                 || (ss.peek() == '{' && ch == '}') 
+    //                 || (ss.peek() == '[' && ch == ']')  ) {
+    //                     ss.pop();
+    //                 }
+    //                 else {
+    //                     return false;
+    //                 }           
+                    
+    //             }
+    //         }
+    //     }
+    //     if(ss.isEmpty()) {
+    //         return true;
+    //     }
+    //     else {
+    //         return false;
+    //     }
     }
 }
