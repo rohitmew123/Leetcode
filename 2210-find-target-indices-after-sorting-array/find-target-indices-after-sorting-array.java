@@ -4,14 +4,12 @@ class Solution {
         ArrayList<Integer> list = new ArrayList<>();
 
         for(int i=0; i<nums.length; i++) {
+            
             if(target == nums[i]) {
                 list.add(i);
-
             }
         }
-        return list;
+        return list;  
 
-
-        
     }
 }
